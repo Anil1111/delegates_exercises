@@ -41,6 +41,12 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exercise2.cs" />
+    <Compile Include="Exercise1.cs" />
+    <Compile Include="Exercise3.cs" />
+    <Compile Include="Exercise4.cs" />
+    <Compile Include="Exercise5.cs" />
+    <Compile Include="Exercise6.cs" />
     <Compile Include="PrettyLameCollectionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
