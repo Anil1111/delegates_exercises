@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FunWithDelegates
 {
-    public class PrettyLameCollection<T> : IEnumerable where T : IComparable<T>
+    public class PrettyLameCollection<T> : IEnumerable<T> where T : IComparable<T>
     {
+        #region Exercise 1
+        // TODO: 
+        #endregion
+
+        #region Pretty Lame Implementation
         private const int DefaultCapacity = 10;
 
         private readonly T[] _items;
@@ -35,6 +42,17 @@ namespace FunWithDelegates
             }
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            return _items.Take(_currentSize).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        #endregion
+
         public void Sort()
         {
             bool swapped;
@@ -58,17 +76,6 @@ namespace FunWithDelegates
             var tempItem = _items[index1];
             _items[index1] = _items[index2];
             _items[index2] = tempItem;
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            var instanceArray = new T[_currentSize];
-            for (int i = 0; i < _currentSize; i++)
-            {
-                instanceArray[i] = _items[i];
-            }
-
-            return  instanceArray.GetEnumerator();
         }
     }
 }
